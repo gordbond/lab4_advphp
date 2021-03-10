@@ -44,19 +44,37 @@ class Admin extends BaseController
             'admin' => true,
             'login' => false
         );
-
-        //All of the questions and associated data
-        $TPL["allUsers"] = $usersModel->findAll();
+        
 
         //delete question
         $deleted = $usersModel->delete($id);
 
+        $this->TPL["allUsers"] = $usersModel->findAll();
         //display view
+        
+        
         if ($deleted) {
             $this->Template->show('admin', $this->TPL);
         } else {
             echo "Error deleting.";
         }
+    }
+
+
+    public function createUser(){
+        //Model
+        $usersModel = new UsersModel();
+
+        //All of the questions and associated data
+        $TPL["allUsers"] = $usersModel->findAll();
+
+
+        $dataForDb = [
+            'username' => $_POST['username'],
+            'password' => $_POST['password'],
+            'accesslevel' => $_POST['accesslevel']
+ 
+        ];
     }
 
 }

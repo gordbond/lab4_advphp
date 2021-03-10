@@ -26,7 +26,7 @@
             <tr>
                 <td>
                     <a href="<?= base_url("Admin/DeleteUser/" . $allUsers[$i]['compid']) ?>">
-                    D
+                        D
                     </a>
                 </td>
                 <td>F</td>
@@ -38,3 +38,19 @@
         <?php } ?>
     </tbody>
 </table>
+<div>
+    <?= form_open('Admin/createForm') ?>
+
+    <h5>User name</h5>
+    <input type="text" name="username" value="" size="50" />
+
+    <h5>Password</h5>
+    <input type="text" name="password" value="" size="50" />
+
+    <h5>Access level</h5>
+    <input type="text" name="accesslevel" value="" size="50" />
+
+    <div><input type="submit" value="Submit" /></div>
+
+    </form>
+</div>
