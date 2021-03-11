@@ -11,20 +11,6 @@ class Home extends BaseController
 {
   var $TPL;
 
-//   public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
-//   {
-// 		parent::initController($request, $response, $logger);
-// 		// Your own constructor code
-
-// 	$this->TPL['loggedin'] = $this->Userauth->validSessionExists();
-//     $this->TPL['active'] = array('home' => true,
-//                                  'members'=>false,
-//                                  'editors'=>false,
-//                                  'admin' => false,
-//                                  'login'=>false);
-
-//   }
-
   public function index()
   {
 

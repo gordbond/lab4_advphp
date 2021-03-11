@@ -238,7 +238,7 @@ class Userauth  {
           return base_url() . "/Members";
           break;
         case "editor":
-          base_url() . "/Editors";
+          return base_url() . "/Editors";
           break;
         case "admin":
           return base_url() . "/Admin";

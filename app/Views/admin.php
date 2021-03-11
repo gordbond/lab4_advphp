@@ -3,6 +3,17 @@
     ADMIN PAGE 
 
  -->
+<h1>Admin Page</h1>
+<?php
+if ($errors) {
+    foreach ($errors as &$error) {
+?>
+
+        <h4><?= $error ?></h4>
+
+<?php }
+} ?>
+<h2>User Table</h2>
 <table>
     <thead>
         <!-- 
@@ -29,7 +40,11 @@
                         D
                     </a>
                 </td>
-                <td>F</td>
+                <td>
+                    <a href="<?= base_url("Admin/toggleFrozen/" . $allUsers[$i]['compid'] . "/" . $allUsers[$i]['frozen']) ?>">
+                        F
+                    </a>
+                </td>
                 <td><?= $allUsers[$i]['username'] ?></td>
                 <td><?= $allUsers[$i]['password'] ?></td>
                 <td><?= $allUsers[$i]['accesslevel'] ?></td>
@@ -38,19 +53,20 @@
         <?php } ?>
     </tbody>
 </table>
-<div>
-    <?= form_open('Admin/createForm') ?>
-
-    <h5>User name</h5>
+<fieldset>
+    <legend>Add new user</legend>
+    <?= form_open('Admin/createUser') ?>
+    <label for="username">Username:</label>
+    <br>
     <input type="text" name="username" value="" size="50" />
-
-    <h5>Password</h5>
+    <br>
+    <label for="password">Password:</label>
+    <br>
     <input type="text" name="password" value="" size="50" />
-
-    <h5>Access level</h5>
+    <br>
+    <label for="accesslevel">Access level:</label>
+    <br>
     <input type="text" name="accesslevel" value="" size="50" />
-
     <div><input type="submit" value="Submit" /></div>
-
     </form>
-</div>
+</fieldset>
